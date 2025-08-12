@@ -34,19 +34,29 @@ public:
   // 录像状态枚举
   enum class RecordState : uint8_t { STOP = 0x00, START = 0x01, TOGGLE = 0x0A };
 
+  // 缩放模式枚举
+  enum class ZoomMode : uint8_t {
+    ZOOM_1X = 0x00,
+    ZOOM_2X = 0x01,
+    ZOOM_3X = 0x02,
+    ZOOM_4X = 0x03,
+    ZOOM_PLUS = 0x0A,
+    ZOOM_MINUS = 0x0B
+  };
+
   // 伪彩模式枚举
   enum class ColorMode : uint8_t {
-    WHITE_HOT = 1,    // 白热
-    SEPIA = 3,        // 辉金
-    IRONBOW = 4,      // 铁红
-    RAINBOW = 5,      // 彩虹
-    NIGHT = 6, // 微光
-    AURORA = 7,       // 极光
-    RED_HOT = 8,      // 红热
-    JUNGLE = 9,       // 丛林
-    MEDICAL = 0xA,    // 医疗
-    BLACK_HOT = 0xB,  // 黑热
-    GOLD_HOT = 0xC    // 金红
+    WHITE_HOT = 1,   // 白热
+    SEPIA = 3,       // 辉金
+    IRONBOW = 4,     // 铁红
+    RAINBOW = 5,     // 彩虹
+    NIGHT = 6,       // 微光
+    AURORA = 7,      // 极光
+    RED_HOT = 8,     // 红热
+    JUNGLE = 9,      // 丛林
+    MEDICAL = 0xA,   // 医疗
+    BLACK_HOT = 0xB, // 黑热
+    GOLD_HOT = 0xC   // 金红
   };
 
   // 安装模式 吊装/倒装
@@ -78,12 +88,15 @@ public:
   bool capturePhoto();
 
   // 图像参数接口
-  bool setImageParams(const ImageParams &params);
-  ImageParams getImageParams();
+  // bool setImageParams(const ImageParams &params);
+  // ImageParams getImageParams();
 
   // 网络配置接口
   bool setNetworkConfig(const std::string &ip, const std::string &gateway);
   std::pair<std::string, std::string> getNetworkConfig();
+
+  // 可见光控制接口
+  bool setZoomMode(ZoomMode mode);
 
   // 热成像控制接口
   // bool setThermalShutter(uint8_t seconds); // TODO

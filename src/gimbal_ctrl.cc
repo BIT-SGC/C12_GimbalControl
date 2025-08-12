@@ -136,10 +136,32 @@ bool GimbalCtrl::capturePhoto() {
   return send(cmd, 999);
 }
 
+/**
+ * @brief 设置缩放模式
+ *
+ * @param mode
+ * @return true
+ * @return false
+ */
+bool GimbalCtrl::setZoomMode(ZoomMode mode) {
+  std::string cmd =
+      buildStaticCommand("U", "G", 'w', "DZM", {static_cast<uint8_t>(mode)});
+  LOG_F(INFO, "setZoomMode cmd:%s", cmd.c_str());
+  return send(cmd, 999);
+}
+
+/**
+ * @brief 设置热成像模式
+ *
+ * @param mode WHITE_HOT--白热，SEPIA - 辉金，IRONBOW - 铁红，RAINBOW -
+ * 彩虹，BLACK_HOT-黑热
+ * @return true
+ * @return false
+ */
 bool GimbalCtrl::setThermalColorMode(ColorMode mode) {
   uint8_t data = static_cast<uint8_t>(mode);
   std::string cmd = buildStaticCommand("U", "D", 'w', "IMG", data);
-  
+
   return send(cmd, 999);
 }
 
