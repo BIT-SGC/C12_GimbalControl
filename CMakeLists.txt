@@ -30,7 +30,7 @@ install(TARGETS gimbal_control gimbal_loguru gimbal_socket
 # 仅安装 gimbal_ctrl.h，避免污染
 install(FILES 
     src/gimbal_ctrl.h
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gimbal_control
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gimbal_drv
 )
 
 add_executable(GimbalCtrl_test
