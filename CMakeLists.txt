@@ -37,6 +37,12 @@ add_executable(GimbalCtrl_test
     src/main.cc
 )
 
+target_link_libraries(gimbal_loguru
+    PRIVATE
+        pthread
+        dl
+)
+
 target_link_libraries(gimbal_control
     PRIVATE
         Threads::Threads
