@@ -22,9 +22,9 @@ add_library(gimbal_control SHARED
     
 include(GNUInstallDirs)
 
-# 修改安装路径到 /usr/lib/gimbal_drv
+# 修改安装路径到 /usr/lib/
 install(TARGETS gimbal_control gimbal_loguru gimbal_socket
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/gimbal_drv
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
 # 仅安装 gimbal_ctrl.h，避免污染
