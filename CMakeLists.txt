@@ -33,6 +33,15 @@ install(FILES
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gimbal_drv
 )
 
+install(FILES 
+    src/practical_socket/PracticalSocket.h
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gimbal_drv/practical_socket/
+)
+
+install(FILES 
+    src/loguru/loguru.hpp
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gimbal_drv/loguru/)
+
 add_executable(GimbalCtrl_test
     src/main.cc
 )
