@@ -35,9 +35,9 @@ bool GimbalCtrl::setGimbalAngle(float yaw_angle, float pitch_angle,
   roll_angle = std::max(-90.0f, std::min(90.0f, roll_angle));
   speed = std::max(0.0f, std::min(100.0f, speed));
 
-  uint16_t yaw = static_cast<uint16_t>(yaw_angle * 100);
-  uint16_t pitch = static_cast<uint16_t>(pitch_angle * 100);
-  uint16_t roll = static_cast<uint16_t>(roll_angle * 100);
+  int16_t yaw = static_cast<int16_t>(yaw_angle * 100);
+  int16_t pitch = static_cast<int16_t>(pitch_angle * 100);
+  int16_t roll = static_cast<int16_t>(roll_angle * 100);
   uint8_t _speed = static_cast<uint8_t>(speed); // TODO 确定是否需要 x10
 
   // 先设置 yaw 角度
